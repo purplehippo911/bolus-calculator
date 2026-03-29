@@ -1,5 +1,7 @@
+
 import type { Metadata } from "next";
 import "./globals.css";
+import SWRegistration from "./SWRegistration";
 
 export const metadata: Metadata = {
   title: "Bolus Calc App",
@@ -16,6 +18,7 @@ export default function RootLayout({
       <body
       >
         {children}
+        <SWRegistration/>
       </body>
     </html>
   );
