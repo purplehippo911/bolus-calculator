@@ -29,11 +29,12 @@ export default function Home() {
     setShowResult(true);    
   };
 
+
   return pug`
     main
       h1 Bolus Calculator
 
-      form(onKeyDown=${(e) => {
+      form(onKeyDown=${(e: React.KeyboardEvent) => {
         if (e.key === "Enter") {
           e.preventDefault();
           handleClick();

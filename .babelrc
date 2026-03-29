@@ -1,4 +1,4 @@
 {
   "presets": ["next/babel"],
-  "plugins": ["transform-react-pug"]
+  "plugins": ["babel-plugin-transform-react-pug"]
 }

@@ -9,7 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "babel-plugin-transform-react-pug": "^7.0.1",
     "next": "16.1.6",
+    "pug": "^3.0.4",
     "pug-loader": "^2.4.0",
     "react": "19.2.3",
     "react-dom": "19.2.3"
