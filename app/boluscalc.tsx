@@ -20,8 +20,6 @@ const totalBolus = carbBolus + correctionBolus;
 
 
 console.log("Target blood sugar", targetBloodSugar);
-console.log("Sorted Targets.", sortedTargets);
-console.log("Difference", difference);
 console.log("Carb Bolus", carbBolus);
 console.log('Correction bolus', correctionBolus);
 console.log ('Total:', totalBolus);
