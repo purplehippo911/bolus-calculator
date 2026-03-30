@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { pug } from "@/pug";
-import {bolusCalculator} from "./boluscalc";
+import {bolusCalculator} from "./utils/boluscalc";
 
 export default function Home() {
 
