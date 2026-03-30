@@ -11,7 +11,6 @@ export default function Home() {
 
   const inputCarb = useRef<HTMLInputElement>(null);
   const inputBS = useRef<HTMLInputElement>(null);
-  const heading2 = useRef<HTMLHeadingElement>(null);
 
   const handleClick = () => {
     setShowResult(false);

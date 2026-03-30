@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 
 export default function SWRegistration() {
   useEffect(() => {
-    if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+    if ('serviceWorker' in navigator /* && process.env.NODE_ENV === 'production'*/) {
       navigator.serviceWorker.register('/sw.js')
-        .then((reg) => console.log('SW registered'))
+        .then((reg) => console.log('SW registered', reg.scope))
         .catch((err) => console.error('SW failed:', err));
     }
   }, []);
