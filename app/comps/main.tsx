@@ -6,9 +6,10 @@ type Props = {
   IkValue: number;
   KfValue: number;
   TargetValue: number;
+  darkMode: boolean;
 };
 
-export default function Main({IkValue, KfValue, TargetValue }: Props ) {
+export default function Main({IkValue, KfValue, TargetValue, darkMode}: Props ) {
 	
   const [ result, setResult ] = useState(0);
   const [ showResult, setShowResult ] = useState(false);
@@ -70,7 +71,10 @@ export default function Main({IkValue, KfValue, TargetValue }: Props ) {
       p This is a PWA app, meaning you can add it to your phone screen as a shortcut depending on what browser you use. Can do the same thing on Desktop as well. 
 
       a(href="https://github.com/purplehippo911/bolus-calculator", target="_blank") 
-       img(src="/githubBlackIcon.svg", alt="github white icon")
+       if !darkMode
+        img(src="/githubBlackIcon.svg", alt="github white icon")
+       else 
+        img(src="/githubWhiteIcon.svg", alt="github dark icon")
        p Source Code
   `;
 

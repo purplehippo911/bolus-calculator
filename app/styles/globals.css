@@ -7,12 +7,6 @@
   --foreground: red;
 }
 
-/*@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
 
 body {
   background: var(--background);
@@ -200,4 +194,33 @@ a {
   transform: translateX(-50%);
   border: 5px solid transparent;
   border-top-color: #333;
+}
+
+/*@media (prefers-color-scheme: dark) {
+  :root {
+    --background: red;
+    --foreground: white;
+  }
+
+  body, *, .title {
+	color: white;
+  }
+
+} */
+
+html.dark body, html.dark *, html.dark .title {
+	color: white;
+}
+
+html.dark body {
+	background: red;
+}
+
+html.dark .warning-text {background: white; color: red;}
+  
+html.dark .warning-text > * {color: red;}
+
+.darkModeToggler {
+	font-size: 3rem;
+	margin-top: auto;
 }

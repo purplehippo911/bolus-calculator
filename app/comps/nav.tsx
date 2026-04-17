@@ -1,5 +1,5 @@
 import { pug } from "@/pug";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Props = {
   IkValue: number;
@@ -8,11 +8,11 @@ type Props = {
   setKfValue: React.Dispatch<React.SetStateAction<number>>;
   TargetValue: number;
   setTargetValue: React.Dispatch<React.SetStateAction<number>>;
+  darkMode: boolean;
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function Nav({IkValue, setIkValue, KfValue, setKfValue, TargetValue, setTargetValue}: Props ) {
-
-// add text warning animation. one for saying that they should be careful and we dont take responsiblity. also one to warn them that we use mmol/l and grams. maybe output the value as mmol/l in result and in inputs highlight
+export default function Nav({IkValue, setIkValue, KfValue, setKfValue, TargetValue, setTargetValue, darkMode, setDarkMode}: Props ) {
 
 // first grab the element
 const gearIcon = useRef<HTMLElement | null>(null);
@@ -30,7 +30,19 @@ function clickHandle() {
 		setNavIsOpen(false);
 	}	
 }
+useEffect(() => {
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setNavIsOpen(false);
+    }
+  };
 
+  document.addEventListener("keydown", handleKeyDown);
+
+  return () => {
+    document.removeEventListener("keydown", handleKeyDown);
+  };
+}, []);
 
 const sleep = (ms:number) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -71,12 +83,6 @@ const handleSubmit = async () => {
   
 }
 
-document.addEventListener("keydown", (e: React.KeyboardEvent) => {
-
-	if (e.key === "Escape") {
-		setNavIsOpen(false);
-	}
-});
 
 
 	return (
@@ -87,6 +93,8 @@ document.addEventListener("keydown", (e: React.KeyboardEvent) => {
 	 <section className="nav_section">
 
 	  <p className="nav_p"> Click on this gear to change settings {"-->"} </p>
+	   <strong className="gearIcon darkModeToggler" onClick={() => setDarkMode(!darkMode)}>
+      {darkMode ? "\u263C" : "\u263E"}    </strong>
 	  <strong ref={gearIcon} 
 	  onClick={clickHandle}
 	  className="gearIcon"> &#9881; </strong>
@@ -125,6 +133,9 @@ drop with 1 unit of insulin. "> Correction factor (KF) &#10068; </label>
 			<p className="saved"> saved </p>
 		)}
 		</form>
+		 <button onClick={() => setDarkMode(!darkMode)}>
+      {darkMode ? "&#9788;" : "&#9789;"}
+    </button>
 	        <strong ref={gearIcon} 
 	  onClick={clickHandle}
 	  className="gearIcon"> &#10006; </strong>
