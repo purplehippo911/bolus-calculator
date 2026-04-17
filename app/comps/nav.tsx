@@ -71,7 +71,13 @@ const handleSubmit = async () => {
   
 }
 
-// change value of stuff using useState
+document.addEventListener("keydown", (e: React.KeyboardEvent) => {
+
+	if (e.key === "Escape") {
+		setNavIsOpen(false);
+	}
+});
+
 
 	return (
 	 <nav>
