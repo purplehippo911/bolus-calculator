@@ -1,0 +1,63 @@
+import { pug } from "@/pug";
+import {bolusCalculator} from "../utils/boluscalc";
+import { useState, useRef } from "react";
+
+export default function Main() {
+	
+  const [ result, setResult ] = useState(0);
+  const [ showResult, setShowResult ] = useState(false);
+
+  const inputCarb = useRef<HTMLInputElement>(null);
+  const inputBS = useRef<HTMLInputElement>(null);
+
+  const handleClick = () => {
+    setShowResult(false);
+    const a = parseInt(inputCarb.current?.value || "0", 10);
+    const b = parseInt(inputBS.current?.value || "0", 10);
+
+    // Validate non-empty. carbs input is allowed to be empty in case you didnt eat anything.
+    if (!b) {
+      alert("Please fill in field for blood sugar");
+      return;
+    }
+
+    const calcResult = bolusCalculator(a, b);
+    setResult(calcResult);
+    setShowResult(true);    
+  };
+
+
+  return pug`
+    main
+      h1.title Bolus Calculator
+
+      form(onKeyDown=${(e: React.KeyboardEvent) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          handleClick();
+        }
+      }})
+        section.form_section
+          label Carbs (g)
+          input(type="number", ref=${inputCarb}, placeholder="grams")
+        section.form_section
+          label Current Blood Sugar (mmol/l)
+          input(type="number", ref=${inputBS}, placeholder="mmol/l")
+        input(type="button", value="Submit", onClick=${handleClick}).form_btn
+  
+      section.warning-text
+       h2 This is not meant to replace your doctors recommendation. The result you get is only an estimation. By continuing further you agree to take the risks. Be careful!
+       label wanna remove this warning?
+       input(type="checkbox")
+
+
+      section.result 
+       
+
+       h1 Result 
+       h3 #{result.toFixed(1)} 
+       strong mmol/l
+  `;
+
+}
+

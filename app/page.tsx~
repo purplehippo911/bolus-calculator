@@ -9,10 +9,10 @@ import Nav from "./comps/nav.tsx";
 export default function Home() {
 
 	return (
-		<div>
-			<Nav/>
-			<Main/>
-		</div>
+
+		<Nav/>
+		<Main/>
+
 
 
 	);

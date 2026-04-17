@@ -1,0 +1,29 @@
+import { pug } from "@/pug";
+import { useRef, useState } from "react";
+
+export default function Nav() {
+
+// add text warning animation. one for saying that they should be careful and we dont take responsiblity. also one to warn them that we use mmol/l and grams. maybe output the value as mmol/l in result and in inputs highlight
+
+// first grab the element
+const gearIcon = useRef<HTMLStrongElement>(null);
+
+function clickHandle() {
+	console.log(gearIcon)
+
+}
+
+// change value of stuff using useState
+
+	return pug`
+
+	nav.outline
+	 section.nav_section
+	  p.nav_p Click on this gear to change settings --> 
+	  strong(ref=${gearIcon}, onClick=${clickHandle()}).gearIcon &#9881;
+	   
+
+
+	`;
+
+}

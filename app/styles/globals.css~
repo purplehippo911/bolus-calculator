@@ -1,13 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: white;
+  --background: FFFFFF;
   --foreground: #171717;
 }
+
+/*@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+	text-align: center;
+
 }
 
 main, form {
@@ -17,8 +38,9 @@ main, form {
   align-items: center;
 }
 
-h1 {
-  color: red
+.title {
+	color: red;
+	margin: 1em 0 .5em 0;
 }
 
 .form_section {
@@ -33,4 +55,60 @@ h2 {
 
 .hide {
   display: none;
+}
+
+form {
+	margin-bottom: 2rem;
+}
+
+.nav_section {
+	color: white;
+	background: black;
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+}
+.gearIcon {
+	margin-left: auto;
+	font-size: 2rem;
+}
+
+.gearIcon:hover {|
+	cursor: pointer;
+}
+
+.warning-text {
+
+  background: red;
+  padding: 2rem;
+  font-size: 1rem;
+  color: white;
+  animation: pulse-scale 2s ease-in-out infinite;
+  display: inline-block; 
+}
+
+.result {
+	margin-top: 2rem;
+	width: 100%;
+}
+
+.form_btn {
+	padding: .5em 1em;
+	color: white;
+	background: red;
+	border:0;
+	border-radius: .8em;
+	font-weight: 700;
+	
+}
+
+
+@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
