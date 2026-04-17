@@ -92,12 +92,14 @@ const handleSubmit = async () => {
 		(
 	 <section className="nav_section">
 
-	  <p className="nav_p"> Click on this gear to change settings {"-->"} </p>
+	  <p className="nav_p" onClick={clickHandle}> Click on the gear to change settings {"-->"} </p>
+	  <section className="gearIcon">
 	   <strong className="gearIcon darkModeToggler" onClick={() => setDarkMode(!darkMode)}>
       {darkMode ? "\u263C" : "\u263E"}    </strong>
 	  <strong ref={gearIcon} 
 	  onClick={clickHandle}
 	  className="gearIcon"> &#9881; </strong>
+	  </section>
 	  </section>
 	)
 	}
@@ -133,12 +135,13 @@ drop with 1 unit of insulin. "> Correction factor (KF) &#10068; </label>
 			<p className="saved"> saved </p>
 		)}
 		</form>
-		 <button onClick={() => setDarkMode(!darkMode)}>
-      {darkMode ? "&#9788;" : "&#9789;"}
-    </button>
+		<section>
+			   <strong className="gearIcon darkModeToggler" onClick={() => setDarkMode(!darkMode)}>
+      {darkMode ? "\u263C" : "\u263E"}    </strong>
 	        <strong ref={gearIcon} 
 	  onClick={clickHandle}
 	  className="gearIcon"> &#10006; </strong>
+	</section>
 	</section>
 	)
 		}

@@ -63,12 +63,11 @@ export default function Main({IkValue, KfValue, TargetValue, darkMode}: Props ) 
 
       section.result 
        
-
        h1 Result 
        p #{result.toFixed(1)} 
        strong mmol/l
 
-      p This is a PWA app, meaning you can add it to your phone screen as a shortcut depending on what browser you use. Can do the same thing on Desktop as well. 
+      p.pwa-text This is a PWA app, meaning you can add it to your phone screen as a shortcut depending on what browser you use. Can do the same thing on Desktop as well. 
 
       a(href="https://github.com/purplehippo911/bolus-calculator", target="_blank") 
        if !darkMode

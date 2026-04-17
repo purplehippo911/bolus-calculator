@@ -224,3 +224,24 @@ html.dark .warning-text > * {color: red;}
 	font-size: 3rem;
 	margin-top: auto;
 }
+
+html.dark .nav_section, html.dark .nav_section > * {background: black;} 
+html.dark .nav_btn {color: red;}
+
+html.dark input {color: red;}
+
+html.dark .result, html.dark .pwa-text {
+	width: 100%;
+	border-bottom: 2px solid white;
+}
+
+html.dark .result {
+	padding: 0 0 2rem 0;
+}
+html.dark .pwa-text {padding: 0 0 2rem 0;}
+
+html.dark .gearIcon:hover, html.dark .gearIcon:focus {color: red}
+
+html.dark .warning-text {margin-top: 0}
+
+.nav_p {text-decoration: underline; cursor: pointer;}
