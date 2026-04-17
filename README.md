@@ -6,4 +6,4 @@ Tried on Fiasp aspart.
 
 this is an open source project. i am open to help.
 
-[Try the bolus-calc app](https/://bolus-calculator-five.vercel.app)
+[Try the bolus-calc app](https://bolus-calculator-five.vercel.app)
