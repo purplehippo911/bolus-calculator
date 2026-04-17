@@ -2,11 +2,12 @@ import { pug } from "@/pug";
 import {bolusCalculator} from "../utils/boluscalc";
 import { useState, useRef } from "react";
 
-export default function Main() {
+export default function Main({IkValue, KfValue, TargetValue } ) {
 	
   const [ result, setResult ] = useState(0);
   const [ showResult, setShowResult ] = useState(false);
-
+  const [ warningStatus, setWarningStatus] = useState(true);
+ 
   const inputCarb = useRef<HTMLInputElement>(null);
   const inputBS = useRef<HTMLInputElement>(null);
 
@@ -21,11 +22,10 @@ export default function Main() {
       return;
     }
 
-    const calcResult = bolusCalculator(a, b);
+    const calcResult = bolusCalculator(a, b, IkValue, KfValue, TargetValue);
     setResult(calcResult);
     setShowResult(true);    
   };
-
 
   return pug`
     main
@@ -45,11 +45,11 @@ export default function Main() {
           input(type="number", ref=${inputBS}, placeholder="mmol/l")
         input(type="button", value="Submit", onClick=${handleClick}).form_btn
   
-      section.warning-text
-       h2 This is not meant to replace your doctors recommendation. The result you get is only an estimation. By continuing further you agree to take the risks. Be careful!
-       label wanna remove this warning?
-       input(type="checkbox")
-
+      if warningStatus
+       section(onClick=${() => setWarningStatus(false)).warning-text
+        h2 This is not meant to replace your doctors recommendation. The result you get is only an estimation. By continuing further you agree to take the risks. Be careful!
+        label wanna remove this warning?
+        input(type="checkbox" onClick=${() => setWarningStatus(false)})
 
       section.result 
        

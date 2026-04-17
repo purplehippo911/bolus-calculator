@@ -8,11 +8,17 @@ import Nav from "./comps/nav.tsx";
 
 export default function Home() {
 
+  const [IkValue, setIkValue] = useState(10);
+  const [KfValue, setKfValue] = useState(2);
+  const [TargetValue, setTargetValue] = useState(6);
+
+
+
 	return (
-
-		<Nav/>
-		<Main/>
-
+		<div>
+			<Nav IkValue={KfValue} setIkValue={setIkValue} KfValue={IkValue} setKfValue={setKfValue} TargetValue={TargetValue} setTargetValue={setTargetValue}/>
+			<Main KfProp={KfValue} IkProp={IkValue} TargetProp={TargetValue}/>
+		</div>
 
 
 	);

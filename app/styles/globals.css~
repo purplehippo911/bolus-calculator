@@ -115,3 +115,5 @@ form {
 }
 
 .active {background: red;} 
+.saved{font-weight: 700}
+.nav_btn{background:white; color: red; margin-top: .5em; width:50%; padding: 2rem;}

@@ -14,11 +14,5 @@ const correctionBolus = (currentBS - targetBloodSugar) / kf;
 
 const totalBolus = carbBolus + correctionBolus;
 
-
-/*console.log("Target blood sugar", targetBloodSugar);
-console.log("Carb Bolus", carbBolus);
-console.log('Correction bolus', correctionBolus);
-console.log ('Total:', totalBolus);
-*/
 return totalBolus;
 }
