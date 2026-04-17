@@ -68,6 +68,7 @@ form {
 	padding: 1rem;
 	display: flex;
 	align-items: center;
+	transition: 2s ease-in-out;
 }
 .gearIcon {
 	margin-left: auto;
@@ -112,3 +113,5 @@ form {
     transform: scale(1.05);
   }
 }
+
+.active {background: red;} 

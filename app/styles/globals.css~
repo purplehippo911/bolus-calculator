@@ -68,13 +68,14 @@ form {
 	padding: 1rem;
 	display: flex;
 	align-items: center;
+	transition: 2s ease-in-out;
 }
 .gearIcon {
 	margin-left: auto;
 	font-size: 2rem;
 }
 
-.gearIcon:hover {|
+.gearIcon:hover {
 	cursor: pointer;
 }
 
@@ -112,3 +113,5 @@ form {
     transform: scale(1.05);
   }
 }
+
+.active {background: red;} 
