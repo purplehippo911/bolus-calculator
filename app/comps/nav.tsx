@@ -91,15 +91,15 @@ const handleSubmit = async () => {
 			<p> Ask ur doctor before changing these settings, if you're unsure </p>
 			<label> Insulin:Carbs </label>
 			<p> For 1 unit of insulin how much GRAMS of carbs?</p>
-			<input type="text" ref={IkInput}/>
+			<input type="text" placeholder={IkValue} ref={IkInput}/>
 			</section>
 			<section>
 				<label> Target Bloodsugar </label>
-				<input type="text" ref={TargetInput} />
+				<input type="text" placeholder={TargetValue} ref={TargetInput} />
 			</section>
 			<section>
 				<label> Correction factor (KF)</label>
-				<input type="text" ref={KfInput} />
+				<input type="text" placeholder={KfValue} ref={KfInput} />
 			</section>
 
 		<input type="button" value="Submit" className="form_btn nav_btn" onClick={handleSubmit} />
