@@ -7,12 +7,6 @@
   --foreground: red;
 }
 
-/*@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
 
 body {
   background: var(--background);
@@ -99,7 +93,8 @@ form {
 }
 
 .result p{
-	font-weight: 100;
+	font-weight: 500;
+	font-size: 1.7em;
 }
 
 .form_btn {
@@ -200,3 +195,53 @@ a {
   border: 5px solid transparent;
   border-top-color: #333;
 }
+
+/*@media (prefers-color-scheme: dark) {
+  :root {
+    --background: red;
+    --foreground: white;
+  }
+
+  body, *, .title {
+	color: white;
+  }
+
+} */
+
+html.dark body, html.dark *, html.dark .title {
+	color: white;
+}
+
+html.dark body {
+	background: red;
+}
+
+html.dark .warning-text {background: white; color: red;}
+  
+html.dark .warning-text > * {color: red;}
+
+.darkModeToggler {
+	font-size: 3rem;
+	margin-top: auto;
+}
+
+html.dark .nav_section, html.dark .nav_section > * {background: black;} 
+html.dark .nav_btn {color: red;}
+
+html.dark input {color: red;}
+
+html.dark .result, html.dark .pwa-text {
+	width: 100%;
+	border-bottom: 2px solid white;
+}
+
+html.dark .result {
+	padding: 0 0 2rem 0;
+}
+html.dark .pwa-text {padding: 0 0 2rem 0;}
+
+html.dark .gearIcon:hover, html.dark .gearIcon:focus {color: red}
+
+html.dark .warning-text {margin-top: 0}
+
+.nav_p {text-decoration: underline; cursor: pointer;}

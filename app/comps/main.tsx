@@ -2,7 +2,14 @@ import { pug } from "@/pug";
 import {bolusCalculator} from "../utils/boluscalc";
 import { useState, useRef } from "react";
 
-export default function Main({IkValue, KfValue, TargetValue } ) {
+type Props = {
+  IkValue: number;
+  KfValue: number;
+  TargetValue: number;
+  darkMode: boolean;
+};
+
+export default function Main({IkValue, KfValue, TargetValue, darkMode}: Props ) {
 	
   const [ result, setResult ] = useState(0);
   const [ showResult, setShowResult ] = useState(false);
@@ -23,6 +30,7 @@ export default function Main({IkValue, KfValue, TargetValue } ) {
     }
     else if (b < 5) {alert("The blood sugar you inputted was too low. Remember this app uses mmol/l no support for mg/l etc. Else, you might want to get your blood sugar up!"); return}
     else if (b >= 14) {alert("The blood sugar you inputted seems high. Remember this app uses mmol/L no support for mg/l etc. Else, you might need some insulin")}
+    else if (a > 500) {alert("You've inputted a too high amount of carbs."); return}
 
     const calcResult = bolusCalculator(a, b, IkValue, KfValue, TargetValue);
     setResult(calcResult);
@@ -55,15 +63,17 @@ export default function Main({IkValue, KfValue, TargetValue } ) {
 
       section.result 
        
-
        h1 Result 
        p #{result.toFixed(1)} 
        strong mmol/l
 
-      p This is a PWA app, meaning you can add it to your phone screen as a shortcut depending on what browser you use. Can do the same thing on Desktop as well. 
+      p.pwa-text This is a PWA app, meaning you can add it to your phone screen as a shortcut depending on what browser you use. Can do the same thing on Desktop as well. 
 
       a(href="https://github.com/purplehippo911/bolus-calculator", target="_blank") 
-       img(src="/githubBlackIcon.svg", alt="github white icon")
+       if !darkMode
+        img(src="/githubBlackIcon.svg", alt="github white icon")
+       else 
+        img(src="/githubWhiteIcon.svg", alt="github dark icon")
        p Source Code
   `;
 
