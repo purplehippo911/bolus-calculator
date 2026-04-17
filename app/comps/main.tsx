@@ -29,6 +29,7 @@ export default function Main({IkValue, KfValue, TargetValue }: Props ) {
     }
     else if (b < 5) {alert("The blood sugar you inputted was too low. Remember this app uses mmol/l no support for mg/l etc. Else, you might want to get your blood sugar up!"); return}
     else if (b >= 14) {alert("The blood sugar you inputted seems high. Remember this app uses mmol/L no support for mg/l etc. Else, you might need some insulin")}
+    else if (a > 500) {alert("You've inputted a too high amount of carbs."); return}
 
     const calcResult = bolusCalculator(a, b, IkValue, KfValue, TargetValue);
     setResult(calcResult);
