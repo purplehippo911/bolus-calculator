@@ -2,7 +2,13 @@ import { pug } from "@/pug";
 import {bolusCalculator} from "../utils/boluscalc";
 import { useState, useRef } from "react";
 
-export default function Main({IkValue, KfValue, TargetValue } ) {
+type Props = {
+  IkValue: number;
+  KfValue: number;
+  TargetValue: number;
+};
+
+export default function Main({IkValue, KfValue, TargetValue }: Props ) {
 	
   const [ result, setResult ] = useState(0);
   const [ showResult, setShowResult ] = useState(false);

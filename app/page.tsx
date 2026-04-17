@@ -3,12 +3,12 @@
 import { useState, useRef, useEffect } from "react";
 import { pug } from "@/pug";
 
-import Main from "./comps/main.tsx";
-import Nav from "./comps/nav.tsx";
+import Main from "./comps/main";
+import Nav from "./comps/nav";
 
 export default function Home() {
 
-function useLocalNumber(key, defaultValue) {
+function useLocalNumber(key:string, defaultValue:number) {
   const [value, setValue] = useState(defaultValue);
   
   useEffect(() => {
@@ -20,7 +20,7 @@ function useLocalNumber(key, defaultValue) {
     localStorage.setItem(key, value.toString());
   }, [key, value]);
   
-  return [value, setValue];
+  return [value, setValue] as const;
 }
   const [IkValue, setIkValue] = useLocalNumber("IkValue", 10);
   const [KfValue, setKfValue] = useLocalNumber("KfValue", 2);
