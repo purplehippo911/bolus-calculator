@@ -82,16 +82,24 @@ form {
 .warning-text {
 
   background: red;
-  padding: 2rem;
-  font-size: 1rem;
+  padding: 1rem;
   color: white;
   animation: pulse-scale 2s ease-in-out infinite;
   display: inline-block; 
+  margin-bottom: 2rem;
 }
 
 .result {
-	margin-top: 2rem;
+	background: red;
+	color: white;
 	width: 100%;
+	padding: 1rem;
+	animation: 2s ease-in-out;
+	margin-bottom: 2rem;
+}
+
+.result p{
+	font-weight: 100;
 }
 
 .form_btn {
@@ -104,13 +112,17 @@ form {
 	
 }
 
+a {
+ margin: .5rem 0;
+
+}
 
 @keyframes pulse-scale {
   0%, 100% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
 }
 
