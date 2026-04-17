@@ -21,6 +21,8 @@ export default function Main({IkValue, KfValue, TargetValue } ) {
       alert("Please fill in field for blood sugar");
       return;
     }
+    else if (b < 5) {alert("The blood sugar you inputted was too low. Remember this app uses mmol/l no support for mg/l etc. Else, you might want to get your blood sugar up!"); return}
+    else if (b => 20) {alert("The blood sugar you inputted seems high. Remember this app uses mmol/L no support for mg/l etc. Else, you might need some insulin")}
 
     const calcResult = bolusCalculator(a, b, IkValue, KfValue, TargetValue);
     setResult(calcResult);
@@ -55,7 +57,7 @@ export default function Main({IkValue, KfValue, TargetValue } ) {
        
 
        h1 Result 
-       h3 #{result.toFixed(1)} 
+       p #{result.toFixed(1)} 
        strong mmol/l
   `;
 

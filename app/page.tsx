@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { pug } from "@/pug";
 
 import Main from "./comps/main.tsx";
@@ -8,9 +8,23 @@ import Nav from "./comps/nav.tsx";
 
 export default function Home() {
 
-  const [IkValue, setIkValue] = useState(10);
-  const [KfValue, setKfValue] = useState(2);
-  const [TargetValue, setTargetValue] = useState(6);
+function useLocalNumber(key, defaultValue) {
+  const [value, setValue] = useState(defaultValue);
+  
+  useEffect(() => {
+    const saved = localStorage.getItem(key);
+    if (saved !== null) setValue(parseFloat(saved));
+  }, [key]);
+  
+  useEffect(() => {
+    localStorage.setItem(key, value.toString());
+  }, [key, value]);
+  
+  return [value, setValue];
+}
+  const [IkValue, setIkValue] = useLocalNumber("IkValue", 10);
+  const [KfValue, setKfValue] = useLocalNumber("KfValue", 2);
+  const [TargetValue, setTargetValue] = useLocalNumber("TargetValue", 6);
 
 
 

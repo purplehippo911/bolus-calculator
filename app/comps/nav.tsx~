@@ -71,7 +71,7 @@ const handleSubmit = async () => {
 		(
 	 <section className="nav_section">
 
-	  <p className="nav_p"> Click on this gear to change settings --> </p>
+	  <p className="nav_p warning-text"> Click on this gear to change settings --> </p>
 	  <strong ref={gearIcon} 
 	  onClick={clickHandle}
 	  className="gearIcon"> &#9881; </strong>
@@ -81,25 +81,28 @@ const handleSubmit = async () => {
 	
 	{ navIsOpen && (
 		<section className="nav_section active">
-		<form onKeyDown={(e: React.KeyboardEvent) => {
+		<form className="active" onKeyDown={(e: React.KeyboardEvent) => {
 		if (e.key === "Enter") {
 			e.preventDefault();
 			handleSubmit();
 		}
 		}}>
+
+			<p> Ask ur doctor before changing these settings, if you're unsure: </p>
 			<section>
-			<p> Ask ur doctor before changing these settings, if you're unsure </p>
-			<label> Insulin:Carbs </label>
-			<p> For 1 unit of insulin how much GRAMS of carbs?</p>
-			<input type="text" placeholder={IkValue} ref={IkInput}/>
+			<label data-tooltip="The insulin to carbohydrate ratio tells you how
+many grams of carbohydrates are covered by
+one unit of insulin"> Insulin:Carbs &#10068;</label>
+			<input type="number" placeholder={IkValue} ref={IkInput}/>
 			</section>
 			<section>
-				<label> Target Bloodsugar </label>
-				<input type="text" ref={TargetInput} />
+				<label data-tooltip="The median of the range, where your blood sugar is stable" data-id="firstInput" > Target Bloodsugar &#10068; </label>
+				<input type="number" placeholder={TargetValue} ref={TargetInput} />
 			</section>
 			<section>
-				<label> Correction factor (KF)</label>
-				<input type="text" ref={KfInput} />
+				<label data-tooltip="CF is how many points the blood sugar will
+drop with 1 unit of insulin. "> Correction factor (KF) &#10068; </label>
+				<input type="number" placeholder={KfValue} ref={KfInput} />
 			</section>
 
 		<input type="button" value="Submit" className="form_btn nav_btn" onClick={handleSubmit} />
