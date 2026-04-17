@@ -135,7 +135,6 @@ a {
 
 .gearIcon {
 	cursor: pointer;
-	transition: 1s ease-out;
 }
 
 .gearIcon:hover {
